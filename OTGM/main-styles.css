@@ -45,4 +45,17 @@ body {
     background-color: var(--lemon-chiffon);
 }
 
+#header {
+    background-color: var(--yale-blue);
+    color: white;
+    padding: 10px 0;
+    text-align: center;
+}
 
+#footer {
+    background-color: var(--yale-blue);
+    color: white;
+    padding: 10px 0;
+    text-align: center;
+    bottom: 0;
+}

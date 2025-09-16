@@ -1,0 +1,48 @@
+/* main-styles.css */
+
+
+/* Colores personalizados */
+:root {
+    --yale-blue: #0d3b66;
+    --lemon-chiffon: #faf0ca;
+    --naples-yellow: #f4d35e;
+    --sandy-brown: #ee964b;
+    --tomato: #f95738;
+}
+
+
+/* Usando la fuente Montserrat desde Google Fonts, importada en <head>*/
+
+/* Estilos para los encabezados*/
+h1 {
+  font-family: "Montserrat", sans-serif;
+  font-optical-sizing: auto;
+  font-weight: 500;
+  font-style: normal;
+}
+
+h2 {
+  font-family: "Montserrat", sans-serif;
+  font-optical-sizing: auto;
+  font-weight: 400;
+  font-style: normal;
+}
+
+/* Estilos para los párrafos */
+p {
+  font-family: "Montserrat", sans-serif;
+  font-optical-sizing: auto;
+  font-weight: 400;
+  font-style: normal;
+}
+
+
+/* Estilos generales para el cuerpo */
+body {
+    margin: 0;
+    min-height: 100vh;
+    color: var(--yale-blue);
+    background-color: var(--lemon-chiffon);
+}
+
+

@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-sRIl4kxILFvY47J16cr9ZwB07vP4J8+LH7qKQnuqkuIAvNWLzeN8tE5YBujZqJLB" crossorigin="anonymous">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="/OTGM/main-styles.css">
+    <link rel="stylesheet" href="/OTGM/Admin/admin-styles.css">
+    <title>OTGM - Listado de Usuarios</title>
+</head>
+<body>
+    <!-- Contenido principal -->
+    <header id="header" class="d-flex justify-content-between align-items-center p-3 border-bottom" style="margin-left: 250px;">
+        <div>
+            <h1>Lista de Usuarios</h1>
+        </div>
+    </header>
+
+    <!-- Barra lateral -->
+    <aside id="sidebar" class="p-3 border-end" >
+        <h2>Menú de Navegación</h2>
+        <div>
+            <p>Logo de la empresa</p>
+        </div>
+        <div class="">
+            <ul>
+                <li><a href="/OTGM/Admin/home.html">Inicio</a></li>
+                <li><a href="/OTGM/Admin/Usuarios/listado-usuarios.html">Usuarios</a></li>
+                <li><a href="/OTGM/Admin/settings.html">Configuraciones</a></li>
+            </ul>
+        </div>
+        <div id="search-section" class="mt-3 border-top pt-3">
+            <ul>
+                <li><a href="#">Configuracion</a></li>
+                <li><a href="#">Buscar</a></li>
+            </ul>
+        </div>
+        <div class="border-top pt-3 mt-3">
+            <p>Usuario: Admin</p>
+        </div>
+    </aside>
+
+    <main>
+        <div>
+            <div class="container" style="margin-left: 250px;">
+                <h2 class="mt-4">Listado de Usuarios</h2>
+                <table class="table table-striped mt-3">
+                    <thead>
+                        <tr>
+                            <th>ID</th>
+                            <th>Nombre</th>
+                            <th>Email</th>
+                            <th>Rol</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>1</td>
+                            <td>Juan Pérez</td>
+                            <td>juan.perez@example.com</td>
+                            <td>Administrador</td>
+                        </tr>
+                        <tr>
+                            <td>2</td>
+                            <td>María Gómez</td>
+                            <td>maria.gomez@example.com</td>
+                            <td>Usuario</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </main>
+    
+</body>
+</html>

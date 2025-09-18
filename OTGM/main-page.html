@@ -12,32 +12,174 @@
 </head>
 <body>
 
-    <!-- Encabezado -->
-    <header id="header" class="d-flex justify-content-between align-items-center p-3">
-        <div class="logo">
-            <h1>On The Go Music</h1>
-        </div>
-        <nav class="navigation">
-            <ul class="nav">
-                <li class="nav-item"><a class="nav-link" href="#">Inicio</a></li>
-                <li class="nav-item"><a class="nav-link" href="#">Productos</a></li>
-                <li class="nav-item"><a class="nav-link" href="#" onclick="window.location.href='/OTGM/Nosotros/nosotros.html'">Nosotros</a></li>
-                <li class="nav-item"><a class="nav-link" href="#" onclick="window.location.href='/OTGM/Blogs/Blogs.html'">Blogs</a></li>
-                <li class="nav-item"><a class="nav-link" href="#">Contacto</a></li>
-            </ul>
-        </nav>
 
-    </header>    
+<!-- Header con Navbar Bootstrap -->
+    <header id="header">
+    <nav class="navbar navbar-expand-lg navbar-dark bg-blue">
+
+        <div class="container-fluid">
+        <!-- Logo -->
+        <a class="navbar-brand" href="#">On The Go Music</a>
+        
+        <!-- Botón -->
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+
+        <!-- Links -->
+        <div class="collapse navbar-collapse" id="navbarNav">
+            <ul class="navbar-nav me-auto">
+            <li class="nav-item"><a class="nav-link" href="#">Inicio</a></li>
+            <li class="nav-item"><a class="nav-link" href="#">Productos</a></li>
+            <li class="nav-item"><a class="nav-link" href="#" onclick="window.location.href='/OTGM/Nosotros/nosotros.html'">Nosotros</a></li>
+            <li class="nav-item"><a class="nav-link" href="#" onclick="window.location.href='/OTGM/Blogs/Blogs.html'">Blogs</a></li>
+            <li class="nav-item"><a class="nav-link" href="#">Contacto</a></li>
+            </ul>
+            
+            <!-- Acciones a la derecha -->
+            <ul class="navbar-nav">
+            <li class="nav-item"><a class="nav-link" href="login.html">Iniciar sesión</a></li>
+            <li class="nav-item"><a class="nav-link" href="#">Registrar usuario</a></li>
+            <li class="nav-item">
+                <a class="nav-link" href="#">
+                <i class="bi bi-cart"></i> Carrito (0)
+                </a>
+            </li>
+            </ul>
+        </div>
+        </div>
+    </nav>
+    </header>
+
 
     <!--! Navegación -->
 
     <!-- Principal -->
-    <main>
-        <section class="hero text-center p-5">
-            <h2>Nuestros Productos</h2>
-            <p>Explora nuestra amplia gama de instrumentos musicales, accesorios y más.</p>
-        </section>
-    </main>
+
+<section class="container my-5 card p-4">
+  <div class="row align-items-center">
+    <div class="col-md-6">
+      <h1 class="fw-bold text-danger">¡OFERTA DIECIOCHERA!</h1>
+      <p class="lead">
+        Celebra las Fiestas Patrias con el mejor ritmo.  
+        Durante septiembre, disfruta <strong>descuentos exclusivos en guitarras, teclados y baterías</strong>.  
+        ¡Equípate con instrumentos de calidad a precios patrios!
+      </p>
+      <a href="#productos" class="btn btn-primary btn-lg">Ver productos</a>
+    </div>
+    <div class="col-md-6 text-center">
+      <img src="https://assets.jumpseller.com/store/musicchile/themes/464225/settings/0a8d8f3c377898ce50a9/Banner18.png?1756735065" 
+      class="img-fluid rounded" alt="banner">
+    </div>
+  </div>
+</section>
+
+    <!-- PRODUCTOS -->
+<section id="productos" class="container my-5 ra"> ">
+  <h2 class="text-center mb-4">Nuestros Productos</h2>
+  <div class="row row-cols-1 row-cols-md-4 g-3" >
+    
+    <div class="col ">
+      <div class="card ">
+        <img src="https://audiomusicacl.vtexassets.com/arquivos/ids/192797/1-guitarra-acustica-vizcaya-con-cuerdas-de-nylon-arcg39-rb-207758.jpg?v=638556328914200000" 
+        class="card-img-top " alt="producto">
+        <div class="card-body text-center">
+          <h5 class="card-title">Guitarra Rosewood</h5>
+          <p class="card-text">$45.000</p>
+          <a href="#" class="btn btn-outline-primary">Agregar al carrito</a>
+        </div>
+      </div>
+    </div>
+
+    <div class="col">
+      <div class="card">
+        <img src="https://ieebolivia.net/es/2981-home_default/guitarra-coronado-guitar-rosewood-fingerboard-black-0243000506.jpg"
+        class="card-img-top" alt="producto">
+        <div class="card-body text-center">
+          <h5 class="card-title">Guitarra Electrica Blackout</h5>
+          <p class="card-text">$55.000</p>
+          <a href="#" class="btn btn-outline-primary">Agregar al carrito</a>
+        </div>
+      </div>
+    </div>
+
+    <div class="col">
+      <div class="card">
+        <img src="https://heavenstorage.blob.core.windows.net/storageheavenimagenes/0c3d234c-03b5-48ac-85a1-10e80752be67/images/v2/GRETSCH/1705081300138888_01_small.jpg?sp=r&st=2025-06-19T02:11:26Z&se=2035-06-19T10:11:26Z&spr=https&sv=2024-11-04&sr=c&sig=JTrpEXutEZPdfvCaeQXMhkVlHyRxzKHHZRKwJAxxoq8%3D"
+        class="card-img-top" alt="producto">
+        <div class="card-body text-center">
+          <h5 class="card-title">Guitarra Electrica Black </h5>
+          <p class="card-text">$50.000</p>
+          <a href="#" class="btn btn-outline-primary">Agregar al carrito</a>
+        </div>
+      </div>
+    </div>
+
+    <div class="col">
+      <div class="card">
+        <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRKmmQvzfGrCHEVG4YumP7UDnpaBXPaoV--EAuEAbhgp-2YmYWQOCQUcTfxPzfLUaxeQas&usqp=CAU" 
+        class="card-img-top" alt="producto">
+        <div class="card-body text-center">
+          <h5 class="card-title">Guitarra Electrica Turkey</h5>
+          <p class="card-text">$37.000</p>
+          <a href="#" class="btn btn-outline-primary">Agregar al carrito</a>
+        </div>
+      </div>
+    </div>
+
+    <div class="col">
+      <div class="card">
+        <img src="https://casaroyal.vtexassets.com/arquivos/ids/162255/111977_1.jpg?v=638774932664670000"
+        class="card-img-top" alt="producto">
+        <div class="card-body text-center">
+          <h5 class="card-title">Teclado Clasico</h5>
+          <p class="card-text">$20.000</p>
+          <a href="#" class="btn btn-outline-primary">Agregar al carrito</a>
+        </div>
+      </div>
+    </div>
+
+    <div class="col">
+      <div class="card">
+        <img src="https://cdn.sistemawbuy.com.br/arquivos/77d2a96ea0d7af0b4f84059a13a78178/produtos/66f1d2f37ac05/20240923174451-66f1d3436f74c.jpg" 
+        class="card-img-top" alt="producto">
+        <div class="card-body text-center">
+          <h5 class="card-title">Teclado Clasico Red</h5>
+          <p class="card-text">$25.000</p>
+          <a href="#" class="btn btn-outline-primary">Agregar al carrito</a>
+        </div>
+      </div>
+    </div>
+
+    <div class="col">
+      <div class="card">
+        <img src="https://biomusic.cl/wp-content/uploads/2022/11/bateria-pearl-roadshow-jet-black-rs525scc-31-D_NQ_NP_691555-MPE31254699226_062019-F.jpeg" 
+        class="card-img-top" alt="producto">
+        <div class="card-body text-center">
+          <h5 class="card-title">Bateria Dark</h5>
+          <p class="card-text">$80.000</p>
+          <a href="#" class="btn btn-outline-primary">Agregar al carrito</a>
+        </div>
+      </div>
+    </div>
+
+    <div class="col">
+      <div class="card">
+        <img src="https://alamomusical.com/wp-content/uploads/2020/10/a1-33.jpg" 
+        class="card-img-top" alt="producto">
+        <div class="card-body text-center">
+          <h5 class="card-title">Bateria DarkWood</h5>
+          <p class="card-text">$95.000</p>
+          <a href="#" class="btn btn-outline-primary">Agregar al carrito</a>
+        </div>
+      </div>
+    </div>
+    <!-- Puedes seguir agregando más -->
+  </div>
+</section>
+
+
+
 
     <!-- Footer -->
     <footer id="footer" class="text-center p-3">

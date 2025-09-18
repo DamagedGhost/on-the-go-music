@@ -107,16 +107,3 @@ body {
   width: 100%;
   z-index: 100;
 }
-
-.product-card-img-top {
-  width: 140px;
-  height: 200px;   
-  object-fit: cover;
-}
-
-.product-card {
-  max-width: 250px; 
-  margin: auto;  
-
-}
-

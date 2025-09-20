@@ -1,0 +1,140 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-sRIl4kxILFvY47J16cr9ZwB07vP4J8+LH7qKQnuqkuIAvNWLzeN8tE5YBujZqJLB" crossorigin="anonymous">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="/OTGM/main-styles.css">
+
+    <title>On The Go Music</title>
+</head>
+<body>
+<!-- Header con Navbar Bootstrap -->
+    <header id="header">
+    <nav class="navbar navbar-expand-lg navbar-dark bg-blue">
+
+        <div class="container-fluid">
+        <!-- Logo -->
+        <a class="navbar-brand" href="#">On The Go Music</a>
+        
+        <!-- Botón -->
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+
+        <!-- Links -->
+        <div class="collapse navbar-collapse" id="navbarNav">
+            <ul class="navbar-nav me-auto">
+            <li class="nav-item"><a class="nav-link" href="#" onclick="window.location.href='/OTGM/main-page.html'">Inicio</a></li>
+            <li class="nav-item"><a class="nav-link" href="#" onclick="window.location.href='/OTGM/Productos/productos.html'">Productos</a></li>
+            <li class="nav-item"><a class="nav-link" href="#" onclick="window.location.href='/OTGM/Nosotros/nosotros.html'">Nosotros</a></li>
+            <li class="nav-item"><a class="nav-link" href="#" onclick="window.location.href='/OTGM/Blogs/Blogs.html'">Blogs</a></li>
+            <li class="nav-item"><a class="nav-link" href="#">Contacto</a></li>
+            </ul>
+
+
+            <ul class="navbar-nav">
+                <li class="nav-item">
+                    <a class="nav-link" href="#">
+                    <i class="bi bi-cart"></i> Carrito (0)
+                    </a>
+                </li>
+            </ul>
+        </div>
+        </div>
+    </nav>
+    </header>
+
+    <!-- Breadcrumb -->
+  <nav class="container mt-3" aria-label="breadcrumb">
+    <ol class="breadcrumb">
+      <li class="breadcrumb-item"><a href="#" onclick="window.location.href='/OTGM/main-page.html'">Inicio</a></li>
+      <li class="breadcrumb-item"><a href="#" onclick="window.location.href='/OTGM/Productos/productos.html'">Productos</a></li>
+      <li class="breadcrumb-item active" aria-current="page">Guitarra Electrica Blackout</li>
+    </ol>
+  </nav>
+
+  <!-- Detalle del Producto -->
+<div class="container my-4">
+    <div class="row">
+        <!-- Imágenes -->
+        <div class="col-md-6">
+            <img src="https://ieebolivia.net/es/2981-home_default/guitarra-coronado-guitar-rosewood-fingerboard-black-0243000506.jpg" class="border mb-3" alt="Producto Principal" width="100%" height="auto">
+            <div class="d-flex gap-2">
+                <img src="https://tmsmusic.co/cdn/shop/products/guitarra-electrica-fender-coronado-guitar-rosewood-fingerboard-black-the-music-site-1.jpg?v=1696261218&width=800" class="img-thumbnail" alt="Miniatura 1" width="100" height="100">
+                <img src="https://tmsmusic.co/cdn/shop/products/guitarra-electrica-fender-coronado-guitar-rosewood-fingerboard-black-the-music-site-2.jpg?v=1696261220&width=600" class="img-thumbnail" alt="Miniatura 2" width="100" height="100">
+            </div>
+        </div>
+        <!-- Información del Producto alineada a la derecha -->
+        <div class="col-md-6 d-flex align-items-center mb-5">
+            <div>
+                <h2>Guitarra Electrica Blackout</h2>
+                <h4 class="text-primary">$55.000</h4>
+                <hr>
+                <p>
+                    Guitarra eléctrica Blackout con diseño moderno y sonido potente.  
+                    Ideal para músicos que buscan versatilidad y estilo en un solo instrumento.  
+                    Perfecta para todos los géneros musicales.
+                </p>
+                <div class="mb-3">
+                    <label for="cantidad" class="form-label">Cantidad</label>
+                    <select id="cantidad" class="form-select w-25">
+                        <option>1</option>
+                        <option>2</option>
+                        <option>3</option>
+                    </select>
+                </div>
+                <button class="btn btn-primary btn-lg">Añadir al carrito</button>
+            </div>
+        </div>
+    </div>
+</div>
+
+  <!-- Productos Relacionados -->
+  <div class="container my-5">
+    <h4>Productos Relacionados</h4>
+    <div class="row g-3">
+      <div class="col-6 col-md-3">
+        <div class="card">
+          <img src="https://audiomusicacl.vtexassets.com/arquivos/ids/192797/1-guitarra-acustica-vizcaya-con-cuerdas-de-nylon-arcg39-rb-207758.jpg?v=638556328914200000" class="card-img-top" alt="Relacionado 1" onclick="window.location.href='/OTGM/Productos/Detalles/G_Rosewood.html'">
+          <div class="card-body text-center">
+            <p class="card-text">Guitarra Rosewood</p>
+          </div>
+        </div>
+      </div>
+      <div class="col-6 col-md-3">
+        <div class="card">
+          <img src="https://heavenstorage.blob.core.windows.net/storageheavenimagenes/0c3d234c-03b5-48ac-85a1-10e80752be67/images/v2/GRETSCH/1705081300138888_01_small.jpg?sp=r&st=2025-06-19T02:11:26Z&se=2035-06-19T10:11:26Z&spr=https&sv=2024-11-04&sr=c&sig=JTrpEXutEZPdfvCaeQXMhkVlHyRxzKHHZRKwJAxxoq8%3D" class="card-img-top" alt="Relacionado 2" onclick="window.location.href='/OTGM/Productos/Detalles/G_E_Black.html'">
+          <div class="card-body text-center">
+            <p class="card-text">Guitarra Electrica Black</p>
+          </div>
+        </div>
+      </div>
+      <div class="col-6 col-md-3">
+        <div class="card">
+          <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRKmmQvzfGrCHEVG4YumP7UDnpaBXPaoV--EAuEAbhgp-2YmYWQOCQUcTfxPzfLUaxeQas&usqp=CAU" class="card-img-top" alt="Relacionado 3" onclick="window.location.href='/OTGM/Productos/Detalles/G_E_Turkey.html'">
+          <div class="card-body text-center">
+            <p class="card-text">Guitarra Electrica Turkey</p>
+          </div>
+        </div>
+      </div>
+      <div class="col-6 col-md-3">
+        <div class="card">
+          <img src="https://casaroyal.vtexassets.com/arquivos/ids/162255/111977_1.jpg?v=638774932664670000" class="card-img-top" alt="Relacionado 4" onclick="window.location.href='/OTGM/Productos/Detalles/T_Clasico.html'">
+          <div class="card-body text-center">
+            <p class="card-text">Teclado Clasico</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+
+
+
+</body>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js" integrity="sha384-FKyoEForCGlyvwx9Hj09JcYn3nv7wiPVlz7YYwJrWVcXK/BmnVDxM+D2scQbITxI" crossorigin="anonymous"></script>
+</html>

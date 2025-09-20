@@ -13,20 +13,40 @@
     <body>
 
         <!-- Encabezado -->
-        <header id="header" class="d-flex justify-content-between align-items-center p-3">
-            <div class="logo">
-                <h>On The Go Music</h  1>
-            </div>
-            <nav class="navigation">
-                <ul class="nav">
-                    <li class="nav-item"><a class="nav-link" href="#" onclick="window.location.href='/OTGM/main-page.html'">Inicio</a></li>
-                    <li class="nav-item"><a class="nav-link" href="#">Productos</a></li>
-                    <li class="nav-item"><a class="nav-link" href="#">Nosotros</a></li>
-                    <li class="nav-item"><a class="nav-link" href="#" onclick="window.location.href='/OTGM/Blogs/Blogs.html'">Blogs</a></li>
-                    <li class="nav-item"><a class="nav-link" href="#">Contacto</a></li>
-                </ul>
-            </nav>
-        </header>
+<header id="header">
+    <nav class="navbar navbar-expand-lg navbar-dark bg-blue">
+
+        <div class="container-fluid">
+        <!-- Logo -->
+        <a class="navbar-brand" href="#">On The Go Music</a>
+        
+        <!-- Botón -->
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+
+        <!-- Links -->
+        <div class="collapse navbar-collapse" id="navbarNav">
+            <ul class="navbar-nav me-auto">
+            <li class="nav-item"><a class="nav-link" href="#" onclick="window.location.href='/OTGM/main-page.html'">Inicio</a></li>
+            <li class="nav-item"><a class="nav-link" href="#" onclick="window.location.href='/OTGM/Productos/productos.html'">Productos</a></li>
+            <li class="nav-item"><a class="nav-link" href="#" onclick="window.location.href='/OTGM/Nosotros/nosotros.html'">Nosotros</a></li>
+            <li class="nav-item"><a class="nav-link" href="#" onclick="window.location.href='/OTGM/Blogs/Blogs.html'">Blogs</a></li>
+            <li class="nav-item"><a class="nav-link" href="#">Contacto</a></li>
+            </ul>
+            
+            <!-- Acciones a la derecha -->
+            <ul class="navbar-nav">
+            <li class="nav-item">
+                <a class="nav-link" href="#">
+                <i class="bi bi-cart"></i> Carrito (0)
+                </a>
+            </li>
+            </ul>
+        </div>
+        </div>
+    </nav>
+    </header>
 
         <main>
 
@@ -41,7 +61,7 @@
                             <div class="card p-4 shadow-sm position-relative">
                                 <div class="row">
                                     <div class="col-md-3 d-flex align-items-start">
-                                        <img src="https://media.canva.com/v2/image-resize/format:JPG/height:532/quality:92/uri:ifs%3A%2F%2FM%2FCJt9xk-_BBjFhDQQKJ80C8eKZ01vOzDfR-o_fJGUHYU.jpg/watermark:F/width:800?csig=AAAAAAAAAAAAAAAAAAAAABOp5c7V7yPJtQkz7xm7J8oszZ3OztaJf62oRpm13-tG&exp=1758089725&osig=AAAAAAAAAAAAAAAAAAAAALNF7LKbx_hLIZtyE29cPJIkjef9L29XM4VyLi1XYumf&signer=media-rpc&x-canva-quality=screen" alt="otgm" class="img-fluid rounded border me-3 mt-2">
+                                        <img src="https://i.gyazo.com/bf5ddbb13126156cdb262a2017c1ca3b.png" alt="otgm" class="img-fluid rounded border me-3 mt-2">
                                     </div>
                                     <div class="col-md-9 d-flex align-items-center">
                                         <div class="text-start fs-5">

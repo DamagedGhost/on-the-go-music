@@ -8,8 +8,9 @@
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="/OTGM/Admin/admin-styles.css">
-    <title>OTGM - Nuevo Usuario</title>
+    <title>OTGM - Administrador</title>
 </head>
+
 <body>
 
     <!-- Etiqueta lateral para crear el menu de navegacion lateral de la pagina -->
@@ -113,157 +114,24 @@
             </div>
         </header>
 
-    <!--TODO: Formulario de registro (extraido de otro archivo, tarea de formulario) -->
-    <section class="form-section container my-3">
-      <h1>Nuevo Usuario</h1>
-
-      <form id="registrationForm" onsubmit="validarFormulario(event)">
-        <!-- Nombre -->
-        <div class="Nombre-completo">
-          <label for="nameInput">Nombre Completo:</label>
-          <input
-            type="text"
-            id="nameInput"
-            oninput="validarNombre()"
-            required
-            class="form-control"
-          />
-          <span
-            id="nameFeedback"
-            class="invalid-feedback"
-            style="color: red"
-          ></span>
+        <div class="container-fluid p-4">
+            <h2 class="h5 mb-4">Menu usuario</h2>
+            <p>Desde aquí puedes crear, mostrar y editar usuarios.</p>
+            <!-- Contenido adicional del panel de administración -->
         </div>
 
-        <!-- Correo -->
-        <div class="correo">
-          <label for="emailInput">Correo:</label>
-          <input
-            type="email"
-            id="emailInput"
-            oninput="validateEmailInput()"
-            required
-            class="form-control"
-          />
-          <span
-            id="emailFeedback"
-            class="invalid-feedback"
-            style="color: red"
-          ></span>
-        </div>
-
-        <!-- Contraseña -->
-        <div class="contraseña">
-          <label for="passwordInput">Contraseña:</label>
-          <input
-            type="password"
-            id="passwordInput"
-            oninput="validarContraseña()"
-            required
-            class="form-control"
-          />
-          <span
-            id="passwordFeedback"
-            class="invalid-feedback"
-            style="color: red"
-          ></span>
-        </div>
-
-        <!-- Confirmar Contraseña -->
-        <div class="confirmar-contraseña">
-          <label for="confirmPasswordInput">Confirma Contraseña:</label>
-          <input
-            type="password"
-            id="confirmPasswordInput"
-            oninput="confirmarContraseña()"
-            required
-            class="form-control"
-          />
-          <span
-            id="confirmPasswordFeedback"
-            class="invalid-feedback"
-            style="color: red"
-          ></span>
-        </div>
-
-        <div>
-            <label for="telefono">Teléfono:</label>
-            <input
-              type="tel"
-              id="telefono"
-              oninput="validarTelefono()"
-              required
-              class="form-control"
-            />
-            <span
-              id="telefonoFeedback"
-              class="invalid-feedback"
-              style="color: red"
-            ></span>
-        </div>
-
-        <!-- Región y Comuna (lado a lado) -->
-        <div class="row g-3 my-3">
-            <div class="col-md-6">
-                <label for="regionSelect" class="form-label">Región</label>
-                <select id="regionSelect" class="form-select" required onchange="cargarComunas()">
-                    <option value="">Seleccione región</option>
-                    <option value="metropolitana">Metropolitana</option>
-                    <option value="valparaiso">Valparaíso</option>
-                    <option value="biobio">Biobío</option>
-                    <option value="antofagasta">Antofagasta</option>
-                    <!-- agregar más regiones según necesites -->
-                </select>
-                <span id="regionFeedback" class="invalid-feedback" style="color: red"></span>
+        <div class="d-flex flex-column gap-3 p-4" id="user-menu">
+            <div>
+                <button class="btn btn-primary" onclick="window.location.href='/OTGM/Admin/Usuarios/nuevo-usuario.html'">Crear usuario</button>
             </div>
-
-            <div class="col-md-6">
-                <label for="comunaSelect" class="form-label">Comuna</label>
-                <select id="comunaSelect" class="form-select" required>
-                    <option value="">Seleccione comuna</option>
-                    <!-- se llenará según la región -->
-                </select>
-                <span id="comunaFeedback" class="invalid-feedback" style="color: red"></span>
+            <div>
+                <button class="btn btn-secondary" onclick="window.location.href='/OTGM/Admin/Usuarios/listado-usuarios.html'">Mostrar usuarios</button>
             </div>
         </div>
-
-        <!--TODO: agregar a hoja script <script>
-            // Mapa simple de regiones -> comunas (ajustar según datos reales)
-            const comunasPorRegion = {
-                metropolitana: ["Santiago", "Las Condes", "Providencia", "Maipú"],
-                valparaiso: ["Valparaíso", "Viña del Mar", "Quilpué"],
-                biobio: ["Concepción", "Talcahuano", "Chiguayante"],
-                antofagasta: ["Antofagasta", "Calama", "Tocopilla"]
-            };
-
-            function cargarComunas() {
-                const region = document.getElementById('regionSelect').value;
-                const comunaSelect = document.getElementById('comunaSelect');
-                comunaSelect.innerHTML = '<option value="">Seleccione comuna</option>';
-
-                if (region && comunasPorRegion[region]) {
-                    comunasPorRegion[region].forEach(c => {
-                        const opt = document.createElement('option');
-                        opt.value = c.toLowerCase().replace(/\s+/g, '-');
-                        opt.textContent = c;
-                        comunaSelect.appendChild(opt);
-                    });
-                }
-            }
-        </script> -->
-
-        <!-- Botón -->
-        <div>
-          <button type="submit" id="submitBtn" class="btn btn-primary mt-3">
-            Registrarse
-          </button>
-        </div>
-      </form>
-    </section>
-
         
     </main>
-    
+
 </body>
+<!-- Importaciones: codigo bootstrap, google charts para graficos, hoja JavaScript para la logica -->
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js" integrity="sha384-FKyoEForCGlyvwx9Hj09JcYn3nv7wiPVlz7YYwJrWVcXK/BmnVDxM+D2scQbITxI" crossorigin="anonymous"></script>
 </html>

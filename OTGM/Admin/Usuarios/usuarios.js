@@ -33,8 +33,77 @@ function cargarTabla(tablaId, data) {
       <td>${item.area ?? item.categoria ?? ""}</td>
       <td>${item.correo ?? ""}</td>
       <td>${item.estado ?? ""}</td>
+      <td>
+        <button class="btn btn-sm btn-primary" onclick="editarUsuario(${item.id})">
+            Editar
+        </button>
+      </td>
     `;
 
     tbody.appendChild(fila);
   });
 }
+
+function editarUsuario(id) {
+  const usuario = obtenerUsuarios().find(u => u.id === id);
+    alert("Editar usuario con ID: " + id);
+    // Aquí puedes redirigir a una página de edición o abrir un modal
+    window.location.href = `/OTGM/Admin/Usuarios/editar-usuario.html?id=${id}`;
+}
+
+//! ARREGLAR ESTO
+// // editar-usuario.js
+
+// // Función auxiliar para obtener el ID de la URL
+// function getUserIdFromUrl() {
+//     const params = new URLSearchParams(window.location.search);
+//     return params.get("id");
+// }
+
+// // Cargar datos al formulario
+// function cargarDatosUsuario() {
+//     const userId = getUserIdFromUrl();
+//     if (!userId) {
+//         alert("ID de usuario no especificado.");
+//         return;
+//     }
+
+//     // Buscar usuario
+//     const usuario = obtenerUsuarios().find(u => u.id == userId);
+//     if (!usuario) {
+//         alert("Usuario no encontrado.");
+//         return;
+//     }
+
+//     // Rellenar campos del formulario
+//     document.getElementById("nombre").value = usuario.nombre || "";
+//     document.getElementById("apellido").value = usuario.apellido || "";
+//     document.getElementById("correo").value = usuario.correo || "";
+//     document.getElementById("rol").value = usuario.rol || "";
+//     document.getElementById("estado").value = usuario.estado || "";
+// }
+
+// // Ejecutar cuando cargue la página
+// window.addEventListener("DOMContentLoaded", cargarDatosUsuario);
+
+// // Manejo de envío del formulario
+// document.getElementById("editUserForm").addEventListener("submit", function (e) {
+//     e.preventDefault();
+
+//     // Aquí recoges los valores del formulario
+//     const datosActualizados = {
+//         nombre: document.getElementById("nombre").value,
+//         apellido: document.getElementById("apellido").value,
+//         correo: document.getElementById("correo").value,
+//         rol: document.getElementById("rol").value,
+//         estado: document.getElementById("estado").value,
+//     };
+
+//     console.log("Datos guardados:", datosActualizados);
+
+//     // Aquí puedes:
+//     // - Enviar datos a tu API con fetch()
+//     // - Guardar en localStorage
+//     // - Redirigir de vuelta a la lista de usuarios
+//     alert("Cambios guardados con éxito ✅");
+// });

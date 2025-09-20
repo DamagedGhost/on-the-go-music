@@ -15,7 +15,6 @@
 }
 
 
-
 /* Usando la fuente Montserrat desde Google Fonts, importada en <head>*/
 
 /* Estilos para los encabezados*/
@@ -91,21 +90,12 @@ body {
 #header {
     background-color: var(--yale-blue);
     color: white;
-    padding: 10px 0;
-    text-align: center;
 }
 
-#footer {
-  background-color: var(--yale-blue);
-  color: white;
-  padding: 10px 0;
-  text-align: center;
-  position: fixed;
-  left: 0;
-  right: 0;
-  bottom: 0;
-  width: 100%;
-  z-index: 100;
+#main {
+  margin-left: 250px; /* Ancho del sidebar */
+  padding: 20px;
+  min-height: calc(100vh - 64px); /* Altura total menos la altura del header */
 }
 
 .product-card-img-top {

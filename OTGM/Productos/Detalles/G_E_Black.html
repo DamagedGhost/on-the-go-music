@@ -1,97 +1,106 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-sRIl4kxILFvY47J16cr9ZwB07vP4J8+LH7qKQnuqkuIAvNWLzeN8tE5YBujZqJLB" crossorigin="anonymous">
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="/OTGM/main-styles.css">
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-sRIl4kxILFvY47J16cr9ZwB07vP4J8+LH7qKQnuqkuIAvNWLzeN8tE5YBujZqJLB" crossorigin="anonymous">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="/OTGM/main-styles.css">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons/font/bootstrap-icons.css">
 
-    <title>On The Go Music</title>
+  <!-- Script del carrito -->
+  <script src="/OTGM/carrito.js" defer></script>
+
+  <title>On The Go Music - Guitarra Eléctrica Black</title>
 </head>
 <body>
-<!-- Header con Navbar Bootstrap -->
-    <header id="header">
+  <!-- Header con Navbar Bootstrap -->
+  <header id="header">
     <nav class="navbar navbar-expand-lg navbar-dark bg-blue">
-
-        <div class="container-fluid">
+      <div class="container-fluid">
         <!-- Logo -->
         <a class="navbar-brand" href="#">On The Go Music</a>
-        
         <!-- Botón -->
         <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
-            <span class="navbar-toggler-icon"></span>
+          <span class="navbar-toggler-icon"></span>
         </button>
-
         <!-- Links -->
         <div class="collapse navbar-collapse" id="navbarNav">
-            <ul class="navbar-nav me-auto">
-            <li class="nav-item"><a class="nav-link" href="#" onclick="window.location.href='/OTGM/main-page.html'">Inicio</a></li>
-            <li class="nav-item"><a class="nav-link" href="#" onclick="window.location.href='/OTGM/Productos/productos.html'">Productos</a></li>
-            <li class="nav-item"><a class="nav-link" href="#" onclick="window.location.href='/OTGM/Nosotros/nosotros.html'">Nosotros</a></li>
-            <li class="nav-item"><a class="nav-link" href="#" onclick="window.location.href='/OTGM/Blogs/Blogs.html'">Blogs</a></li>
-            <li class="nav-item"><a class="nav-link" href="#" onclick="window.location.href='/OTGM/Contacto/contacto.html'">Contacto</a></li>
-            </ul>
-
-
-            <ul class="navbar-nav">
-                <li class="nav-item">
-                    <a class="nav-link" href="#">
-                    <i class="bi bi-cart"></i> Carrito (0)
-                    </a>
-                </li>
-            </ul>
+          <ul class="navbar-nav me-auto">
+            <li class="nav-item"><a class="nav-link" href="/OTGM/main-page.html">Inicio</a></li>
+            <li class="nav-item"><a class="nav-link" href="/OTGM/Productos/productos.html">Productos</a></li>
+            <li class="nav-item"><a class="nav-link" href="/OTGM/Nosotros/nosotros.html">Nosotros</a></li>
+            <li class="nav-item"><a class="nav-link" href="/OTGM/Blogs/Blogs.html">Blogs</a></li>
+            <li class="nav-item"><a class="nav-link" href="/OTGM/Contacto/contacto.html">Contacto</a></li>
+          </ul>
+          <!-- Carrito -->
+          <ul class="navbar-nav ms-auto">
+            <li class="nav-item">
+              <a id="cart-link" class="nav-link" href="/OTGM/Carrito/carrito.html">
+                <i class="bi bi-cart"></i> Carrito (0)
+              </a>
+            </li>
+          </ul>
         </div>
-        </div>
+      </div>
     </nav>
-    </header>
+  </header>
 
-    <!-- Breadcrumb -->
+  <!-- Breadcrumb -->
   <nav class="container mt-3" aria-label="breadcrumb">
     <ol class="breadcrumb">
-      <li class="breadcrumb-item"><a href="#" onclick="window.location.href='/OTGM/main-page.html'">Inicio</a></li>
-      <li class="breadcrumb-item"><a href="#" onclick="window.location.href='/OTGM/Productos/productos.html'">Productos</a></li>
-      <li class="breadcrumb-item active" aria-current="page">Guitarra Electrica Black</li>
+      <li class="breadcrumb-item"><a href="/OTGM/main-page.html">Inicio</a></li>
+      <li class="breadcrumb-item"><a href="/OTGM/Productos/productos.html">Productos</a></li>
+      <li class="breadcrumb-item active" aria-current="page">Guitarra Eléctrica Black</li>
     </ol>
   </nav>
 
   <!-- Detalle del Producto -->
-<div class="container my-4">
+  <div class="container my-4">
     <div class="row">
-        <!-- Imágenes -->
-        <div class="col-md-6">
-            <img src="https://heavenstorage.blob.core.windows.net/storageheavenimagenes/0c3d234c-03b5-48ac-85a1-10e80752be67/images/v2/GRETSCH/1705081300138888_01_small.jpg?sp=r&st=2025-06-19T02:11:26Z&se=2035-06-19T10:11:26Z&spr=https&sv=2024-11-04&sr=c&sig=JTrpEXutEZPdfvCaeQXMhkVlHyRxzKHHZRKwJAxxoq8%3D" class="border mb-3" alt="Producto Principal" width="100%" height="auto">
-            <div class="d-flex gap-2">
-                <img src="https://galerimusikindonesia.com/image/cache/data/gitar%20dan%20bass/Gitar%20Elektrik/gretsch/G5122DC%20Electromatic%20Hollowbody/gretsch-g5122dc-electromatic-hollowbody-a83897-700x700.jpg" class="img-thumbnail" alt="Miniatura 1" width="100" height="100">
-                <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQ8Ksb7nRcWo5ccb9n1gI-mQ413CKe6WQRSMw&s" class="img-thumbnail" alt="Miniatura 2" width="100" height="100">
-            </div>
+      <!-- Imágenes -->
+      <div class="col-md-6">
+        <img src="https://heavenstorage.blob.core.windows.net/storageheavenimagenes/0c3d234c-03b5-48ac-85a1-10e80752be67/images/v2/GRETSCH/1705081300138888_01_small.jpg" 
+             class="border mb-3" alt="Guitarra Eléctrica Black" width="100%" height="auto">
+        <div class="d-flex gap-2">
+          <img src="https://galerimusikindonesia.com/image/cache/data/gitar%20dan%20bass/Gitar%20Elektrik/gretsch/G5122DC%20Electromatic%20Hollowbody/gretsch-g5122dc-electromatic-hollowbody-a83897-700x700.jpg" class="img-thumbnail" alt="Miniatura 1" width="100" height="100">
+          <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQ8Ksb7nRcWo5ccb9n1gI-mQ413CKe6WQRSMw&s" class="img-thumbnail" alt="Miniatura 2" width="100" height="100">
         </div>
-        <!-- Información del Producto alineada a la derecha -->
-        <div class="col-md-6 d-flex align-items-center mb-5">
-            <div>
-                <h2>Guitarra Electrica Black</h2>
-                <h4 class="text-primary">$50.000</h4>
-                <hr>
-                <p>
-                    Guitarra eléctrica Black con acabado elegante y componentes de alta calidad.
-                    Ofrece excelente respuesta tonal y comodidad para tocar en vivo o en estudio.
-                    Recomendada para principiantes y profesionales que buscan rendimiento y estilo.
-                </p>
-                <div class="mb-3">
-                    <label for="cantidad" class="form-label">Cantidad</label>
-                    <select id="cantidad" class="form-select w-25">
-                        <option>1</option>
-                        <option>2</option>
-                        <option>3</option>
-                    </select>
-                </div>
-                <button class="btn btn-primary btn-lg">Añadir al carrito</button>
-            </div>
+      </div>
+
+      <!-- Información del Producto -->
+      <div class="col-md-6 d-flex align-items-center mb-5">
+        <div>
+          <h2>Guitarra Eléctrica Black</h2>
+          <h4 class="text-primary">$50.000</h4>
+          <hr>
+          <p>
+            Guitarra eléctrica Black con acabado elegante y componentes de alta calidad.
+            Ofrece excelente respuesta tonal y comodidad para tocar en vivo o en estudio.
+            Recomendada para principiantes y profesionales que buscan rendimiento y estilo.
+          </p>
+          <div class="mb-3">
+            <label for="cantidad" class="form-label">Cantidad</label>
+            <select id="cantidad" class="form-select w-25">
+              <option>1</option>
+              <option>2</option>
+              <option>3</option>
+            </select>
+          </div>
+          <!-- Botón con atributos para el carrito -->
+          <button class="btn btn-primary btn-lg add-to-cart"
+                  data-name="Guitarra Eléctrica Black"
+                  data-price="50000"
+                  data-image="https://heavenstorage.blob.core.windows.net/storageheavenimagenes/0c3d234c-03b5-48ac-85a1-10e80752be67/images/v2/GRETSCH/1705081300138888_01_small.jpg"
+                  data-quantity-id="cantidad">
+            Añadir al carrito
+          </button>
         </div>
+      </div>
     </div>
-</div>
+  </div>
 
   <!-- Productos Relacionados -->
   <div class="container my-5">
@@ -109,7 +118,7 @@
         <div class="card">
           <img src="https://ieebolivia.net/es/2981-home_default/guitarra-coronado-guitar-rosewood-fingerboard-black-0243000506.jpg" class="card-img-top" alt="Relacionado 2" onclick="window.location.href='/OTGM/Productos/Detalles/G_E_Blackout.html'">
           <div class="card-body text-center">
-            <p class="card-text">Guitarra Electrica Blackout</p>
+            <p class="card-text">Guitarra Eléctrica Blackout</p>
           </div>
         </div>
       </div>
@@ -117,7 +126,7 @@
         <div class="card">
           <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRKmmQvzfGrCHEVG4YumP7UDnpaBXPaoV--EAuEAbhgp-2YmYWQOCQUcTfxPzfLUaxeQas&usqp=CAU" class="card-img-top" alt="Relacionado 3" onclick="window.location.href='/OTGM/Productos/Detalles/G_E_Turkey.html'">
           <div class="card-body text-center">
-            <p class="card-text">Guitarra Electrica Turkey</p>
+            <p class="card-text">Guitarra Eléctrica Turkey</p>
           </div>
         </div>
       </div>
@@ -125,13 +134,14 @@
         <div class="card">
           <img src="https://casaroyal.vtexassets.com/arquivos/ids/162255/111977_1.jpg?v=638774932664670000" class="card-img-top" alt="Relacionado 4" onclick="window.location.href='/OTGM/Productos/Detalles/T_Clasico.html'">
           <div class="card-body text-center">
-            <p class="card-text">Teclado Clasico</p>
+            <p class="card-text">Teclado Clásico</p>
           </div>
         </div>
       </div>
     </div>
   </div>
+
+  <!-- Bootstrap JS -->
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js" integrity="sha384-FKyoEForCGlyvwx9Hj09JcYn3nv7wiPVlz7YYwJrWVcXK/BmnVDxM+D2scQbITxI" crossorigin="anonymous"></script>
 </body>
-<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons/font/bootstrap-icons.css">
-<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js" integrity="sha384-FKyoEForCGlyvwx9Hj09JcYn3nv7wiPVlz7YYwJrWVcXK/BmnVDxM+D2scQbITxI" crossorigin="anonymous"></script>
 </html>

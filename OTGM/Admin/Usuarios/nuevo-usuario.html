@@ -117,16 +117,34 @@
     <section class="form-section container my-3">
       <h1>Nuevo Usuario</h1>
 
-      <form id="registrationForm" onsubmit="validarFormulario(event)">
+      <form id="registrationForm">
+
+        <!-- RUT -->
+        <div id="rutDiv" class="mb-3">
+          <label for="rutInput">RUT *</label>
+          <input
+            type="text"
+            id="rutInput"
+            required
+            class="form-control"
+            oninput="validarRUT()"
+          />
+          <span
+            id="rutFeedback"
+            class="invalid-feedback"
+            style="color: red"
+          ></span>
+        </div>
+
         <!-- Nombre -->
-        <div class="Nombre-completo">
-          <label for="nameInput">Nombre Completo:</label>
+        <div id="nameDiv" class="mb-3">
+          <label for="nameInput">Nombre *</label>
           <input
             type="text"
             id="nameInput"
-            oninput="validarNombre()"
             required
             class="form-control"
+            oninput="validarNombre()"
           />
           <span
             id="nameFeedback"
@@ -135,15 +153,32 @@
           ></span>
         </div>
 
+        <!-- Apellidos -->
+        <div id="surnameDiv" class="mb-3">
+          <label for="surnameInput">Apellidos *</label>
+          <input
+            type="text"
+            id="surnameInput"
+            required
+            class="form-control"
+            oninput="validarApellido()"
+          />
+          <span
+            id="surnameFeedback"
+            class="invalid-feedback"
+            style="color: red"
+          ></span>
+        </div>
+
         <!-- Correo -->
-        <div class="correo">
-          <label for="emailInput">Correo:</label>
+        <div id="emailDiv" class="mb-3">
+          <label for="emailInput">Correo *</label>
           <input
             type="email"
             id="emailInput"
-            oninput="validateEmailInput()"
             required
             class="form-control"
+            oninput="validarCorreo()"
           />
           <span
             id="emailFeedback"
@@ -153,14 +188,14 @@
         </div>
 
         <!-- Contraseña -->
-        <div class="contraseña">
-          <label for="passwordInput">Contraseña:</label>
+        <div id="passwordDiv" class="mb-3">
+          <label for="passwordInput">Contraseña *</label>
           <input
             type="password"
             id="passwordInput"
-            oninput="validarContraseña()"
             required
             class="form-control"
+            oninput="validarContrasena()"
           />
           <span
             id="passwordFeedback"
@@ -169,101 +204,110 @@
           ></span>
         </div>
 
-        <!-- Confirmar Contraseña -->
-        <div class="confirmar-contraseña">
-          <label for="confirmPasswordInput">Confirma Contraseña:</label>
-          <input
-            type="password"
-            id="confirmPasswordInput"
-            oninput="confirmarContraseña()"
-            required
-            class="form-control"
-          />
-          <span
-            id="confirmPasswordFeedback"
-            class="invalid-feedback"
-            style="color: red"
-          ></span>
-        </div>
-
-        <div>
-            <label for="telefono">Teléfono:</label>
+        <!-- Fecha de Nacimiento -->
+        <div id="birthdateDiv" class="mb-3">
+            <label for="birthdateInput">Fecha de Nacimiento:</label>
             <input
-              type="tel"
-              id="telefono"
-              oninput="validarTelefono()"
-              required
-              class="form-control"
+              type="date"
+              id="birthdateInput"
+              class="form-control text-secondary"
+            oninput="validarFechaNacimiento()"
             />
             <span
-              id="telefonoFeedback"
+              id="birthdateFeedback"
               class="invalid-feedback"
               style="color: red"
             ></span>
         </div>
 
-        <!-- Región y Comuna (lado a lado) -->
-        <div class="row g-3 my-3">
-            <div class="col-md-6">
-                <label for="regionSelect" class="form-label">Región</label>
-                <select id="regionSelect" class="form-select" required onchange="cargarComunas()">
-                    <option value="">Seleccione región</option>
-                    <option value="metropolitana">Metropolitana</option>
-                    <option value="valparaiso">Valparaíso</option>
-                    <option value="biobio">Biobío</option>
-                    <option value="antofagasta">Antofagasta</option>
-                    <!-- agregar más regiones según necesites -->
-                </select>
-                <span id="regionFeedback" class="invalid-feedback" style="color: red"></span>
-            </div>
-
-            <div class="col-md-6">
-                <label for="comunaSelect" class="form-label">Comuna</label>
-                <select id="comunaSelect" class="form-select" required>
-                    <option value="">Seleccione comuna</option>
-                    <!-- se llenará según la región -->
-                </select>
-                <span id="comunaFeedback" class="invalid-feedback" style="color: red"></span>
-            </div>
+        <!-- Tipo de Usuario -->
+        <div id="userTypeDiv" class="mb-3">
+            <label for="userTypeSelect">Tipo de Usuario: *</label>
+            <select id="userTypeSelect" class="form-select text-secondary" required onchange="validarTipoUsuario()">
+                <option value="">Seleccione tipo de usuario</option>
+                <option value="admin">Administrador</option>
+                <option value="user">Usuario</option>
+                <option value="client">Cliente</option>
+            </select>
+            <span id="userTypeFeedback" class="invalid-feedback" style="color: red"></span>
         </div>
 
-        <!--TODO: agregar a hoja script <script>
-            // Mapa simple de regiones -> comunas (ajustar según datos reales)
-            const comunasPorRegion = {
-                metropolitana: ["Santiago", "Las Condes", "Providencia", "Maipú"],
-                valparaiso: ["Valparaíso", "Viña del Mar", "Quilpué"],
-                biobio: ["Concepción", "Talcahuano", "Chiguayante"],
-                antofagasta: ["Antofagasta", "Calama", "Tocopilla"]
-            };
 
-            function cargarComunas() {
-                const region = document.getElementById('regionSelect').value;
-                const comunaSelect = document.getElementById('comunaSelect');
-                comunaSelect.innerHTML = '<option value="">Seleccione comuna</option>';
+<!-- Región y Comuna (lado a lado) -->
+<div id="locationDiv" class="mb-3 row g-3">
+  <div id="regionDiv" class="col-md-6">
+    <label for="regionSelect" class="form-label">Región</label>
+    <select id="regionSelect" class="form-select text-secondary"
+            required onchange="cargarComunas(); validarRegion()">
+      <option value="">Seleccione región</option>
+      <option value="Arica_Parinacota">Arica y Parinacota</option>
+      <option value="Tarapaca">Tarapacá</option>
+      <option value="Antofagasta">Antofagasta</option>
+      <option value="Atacama">Atacama</option>
+      <option value="Coquimbo">Coquimbo</option>
+      <option value="Valparaiso">Valparaíso</option>
+      <option value="Metropolitana">Metropolitana</option>
+      <option value="Libertador_Bernardo_OHiggins">O’Higgins</option>
+      <option value="Maule">Maule</option>
+      <option value="Ñuble">Ñuble</option>
+      <option value="Biobío">Biobío</option>
+      <option value="La_Araucanía">La Araucanía</option>
+      <option value="Los_Ríos">Los Ríos</option>
+      <option value="Los_Lagos">Los Lagos</option>
+      <!-- puedes seguir agregando -->
+    </select>
+    <span id="regionFeedback" class="invalid-feedback" style="color: red"></span>
+  </div>
 
-                if (region && comunasPorRegion[region]) {
-                    comunasPorRegion[region].forEach(c => {
-                        const opt = document.createElement('option');
-                        opt.value = c.toLowerCase().replace(/\s+/g, '-');
-                        opt.textContent = c;
-                        comunaSelect.appendChild(opt);
-                    });
-                }
-            }
-        </script> -->
+  <div id="comunaDiv" class="col-md-6">
+    <label for="comunaSelect" class="form-label">Comuna</label>
+    <select id="comunaSelect" class="form-select text-secondary"
+            required onchange="validarComuna()">
+      <option value="">Seleccione comuna</option>
+      <!-- se llenará dinámicamente -->
+    </select>
+    <span id="comunaFeedback" class="invalid-feedback" style="color: red"></span>
+  </div>
+</div>
+
+        <!-- Dirección -->
+        <div id="directionDiv" class="mb-3">
+            <label for="directionInput">Dirección: *</label>
+            <input
+                type="text"
+                id="directionInput"
+                required
+                class="form-control"
+                oninput="validarDireccion()"
+            />
+            <span
+                id="directionFeedback"
+                class="invalid-feedback"
+                style="color: red"
+            ></span>
+        </div>
+
+
 
         <!-- Botón -->
-        <div>
-          <button type="submit" id="submitBtn" class="btn btn-primary mt-3">
-            Registrarse
-          </button>
+        <div class="d-flex gap-2 mt-3 p-3 border-top">
+            <button type="submit" id="submitBtn" class="btn btn-primary" onclick="validarFormulario(event)">
+                Registrarse
+            </button>
+            <button type="button" id="resetBtn" class="btn btn-secondary" onclick="limpiarFormulario()">
+                Limpiar Formulario
+            </button>
+                <button onclick="scriptFunciona()">Probar Función</button>
         </div>
-      </form>
-    </section>
 
-        
+      </form>
+
+    </section>
     </main>
-    
+
+
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js" integrity="sha384-FKyoEForCGlyvwx9Hj09JcYn3nv7wiPVlz7YYwJrWVcXK/BmnVDxM+D2scQbITxI" crossorigin="anonymous"></script>
+    <script src="/OTGM/Admin/Usuarios/usuarios.js"></script>
 </body>
-<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js" integrity="sha384-FKyoEForCGlyvwx9Hj09JcYn3nv7wiPVlz7YYwJrWVcXK/BmnVDxM+D2scQbITxI" crossorigin="anonymous"></script>
 </html>

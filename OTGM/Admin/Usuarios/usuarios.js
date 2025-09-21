@@ -1,21 +1,9 @@
 // Simulación de un "dataframe" (array de objetos)
 function obtenerUsuarios() {
 return [
-    { id: 1, nombre: "Juan Pérez", area: "Ventas", correo: "juan.perez@example.com", estado: "Activo" },
-    { id: 2, nombre: "María Gómez", area: "Marketing", correo: "maria.gomez@example.com", estado: "Inactivo" },
-    { id: 3, nombre: "Pedro Fernández", area: "Desarrollo", correo: "pedro.fernandez@example.com", estado: "Activo" },
-    { id: 4, nombre: "Ana López", area: "Soporte", correo: "ana.lopez@example.com", estado: "Activo" },
-    { id: 5, nombre: "Carlos Martínez", area: "Recursos Humanos", correo: "carlos.martinez@example.com", estado: "Inactivo" },
-    { id: 6, nombre: "Lucía Rodríguez", area: "Finanzas", correo: "lucia.rodriguez@example.com", estado: "Activo" },
-    { id: 7, nombre: "Miguel Sánchez", area: "Diseño", correo: "miguel.sanchez@example.com", estado: "Activo" },
-    { id: 8, nombre: "Sofía Torres", area: "Operaciones", correo: "sofia.torres@example.com", estado: "Activo" },
-    { id: 9, nombre: "Fernando Ruiz", categoria: "Calidad", correo: "fernando.ruiz@example.com", estado: "Inactivo" },
-    { id: 10, nombre: "Isabel Navarro", categoria: "Legal", correo: "isabel.navarro@example.com", estado: "Activo" },
-    { id: 11, nombre: "Diego Morales", area: "Administración", correo: "diego.morales@example.com", estado: "Activo" },
-    { id: 12, nombre: "Mariana Castillo", area: "Logística", correo: "mariana.castillo@example.com", estado: "Inactivo" },
-    { id: 13, nombre: "Raúl Vega", area: "Investigación", correo: "raul.vega@example.com", estado: "Activo" },
-    { id: 14, nombre: "Carla Medina", categoria: "Seguridad", correo: "carla.medina@example.com", estado: "Activo" },
-    { id: 15, nombre: "Javier Ortiz", area: "Atención al Cliente", correo: "javier.ortiz@example.com", estado: "Activo" },
+  { id: 1, rut: "12312312-3", nombre: "Juan", apellidos: "Pérez", correo: "juan.perez@example.com", contraseña: "******", fechaNacimiento: "1990-01-01", rol: "admin", region: "Metropolitana", comuna: "Santiago", direccion: "Calle Falsa 123"},
+  { id: 2, rut: "45645645-6", nombre: "María", apellidos: "González", correo: "maria.gonzalez@example.com", contraseña: "******", fechaNacimiento: "1992-02-02", rol: "user", region: "Valparaíso", comuna: "Viña del Mar", direccion: "Avenida Libertad 456"},
+  { id: 3, rut: "78978978-9", nombre: "Pedro", apellidos: "López", correo: "pedro.lopez@example.com", contraseña: "******", fechaNacimiento: "1988-03-03", rol: "user", region: "Biobío", comuna: "Concepción", direccion: "Calle Real 789"}
 ];
 }
 
@@ -29,10 +17,15 @@ function cargarTabla(tablaId, data) {
 
     fila.innerHTML = `
       <td>${item.id}</td>
+      <td>${item.rut}</td>
       <td>${item.nombre}</td>
-      <td>${item.area ?? item.categoria ?? ""}</td>
-      <td>${item.correo ?? ""}</td>
-      <td>${item.estado ?? ""}</td>
+      <td>${item.apellidos}</td>
+      <td>${item.correo}</td>
+      <td>${item.rol}</td>
+      <td>${item.region}</td>
+      <td>${item.comuna}</td>
+      <td>${item.direccion}</td>
+      <!-- Agregar más columnas según sea necesario -->
       <td>
         <button class="btn btn-sm btn-primary" onclick="editarUsuario(${item.id})">
             Editar
@@ -86,6 +79,7 @@ function cargarComunas() {
 }
 
 
+//* ------------------------------------------------------------------------------------------------
 /* Validar formulario:
 
 Debe tener: 
@@ -378,60 +372,60 @@ function limpiarFormulario() {
   const inputs = document.querySelectorAll('.is-invalid, .is-valid');
   inputs.forEach(input => input.classList.remove('is-invalid', 'is-valid'));
 }
+//---------------------------------------------------------------------------------------------------
 
-//! ARREGLAR ESTO
-// // editar-usuario.js
+// editar-usuario.js
 
-// // Función auxiliar para obtener el ID de la URL
-// function getUserIdFromUrl() {
-//     const params = new URLSearchParams(window.location.search);
-//     return params.get("id");
-// }
+function getUserIdFromUrl() {
+  const params = new URLSearchParams(window.location.search);
+  return params.get("id");
+}
 
-// // Cargar datos al formulario
-// function cargarDatosUsuario() {
-//     const userId = getUserIdFromUrl();
-//     if (!userId) {
-//         alert("ID de usuario no especificado.");
-//         return;
-//     }
+function cargarDatosUsuario() {
+  const userId = getUserIdFromUrl();
+  if (!userId) {
+    alert("ID de usuario no especificado.");
+    return;
+  }
 
-//     // Buscar usuario
-//     const usuario = obtenerUsuarios().find(u => u.id == userId);
-//     if (!usuario) {
-//         alert("Usuario no encontrado.");
-//         return;
-//     }
+  const usuario = obtenerUsuarios().find(u => u.id == userId);
+  if (!usuario) {
+    alert("Usuario no encontrado.");
+    return;
+  }
 
-//     // Rellenar campos del formulario
-//     document.getElementById("nombre").value = usuario.nombre || "";
-//     document.getElementById("apellido").value = usuario.apellido || "";
-//     document.getElementById("correo").value = usuario.correo || "";
-//     document.getElementById("rol").value = usuario.rol || "";
-//     document.getElementById("estado").value = usuario.estado || "";
-// }
+  // Rellenar con los IDs correctos del formulario
+  document.getElementById("rutInput").value = usuario.rut || "";
+  document.getElementById("nameInput").value = usuario.nombre || "";
+  document.getElementById("surnameInput").value = usuario.apellido || "";
+  document.getElementById("emailInput").value = usuario.correo || "";
+  document.getElementById("passwordInput").value = usuario.password || "";
+  document.getElementById("birthdateInput").value = usuario.fechaNacimiento || "";
+  document.getElementById("userTypeSelect").value = usuario.rol || "";
+  document.getElementById("regionSelect").value = usuario.region || "";
+  document.getElementById("comunaSelect").value = usuario.comuna || "";
+  document.getElementById("directionInput").value = usuario.direccion || "";
+}
 
-// // Ejecutar cuando cargue la página
-// window.addEventListener("DOMContentLoaded", cargarDatosUsuario);
+// Ejecutar al cargar
+window.addEventListener("DOMContentLoaded", cargarDatosUsuario);
 
-// // Manejo de envío del formulario
-// document.getElementById("editUserForm").addEventListener("submit", function (e) {
-//     e.preventDefault();
+document.getElementById("registrationForm").addEventListener("submit", function (e) {
+  e.preventDefault();
 
-//     // Aquí recoges los valores del formulario
-//     const datosActualizados = {
-//         nombre: document.getElementById("nombre").value,
-//         apellido: document.getElementById("apellido").value,
-//         correo: document.getElementById("correo").value,
-//         rol: document.getElementById("rol").value,
-//         estado: document.getElementById("estado").value,
-//     };
+  const datosActualizados = {
+    rut: document.getElementById("rutInput").value,
+    nombre: document.getElementById("nameInput").value,
+    apellido: document.getElementById("surnameInput").value,
+    correo: document.getElementById("emailInput").value,
+    password: document.getElementById("passwordInput").value,
+    fechaNacimiento: document.getElementById("birthdateInput").value,
+    rol: document.getElementById("userTypeSelect").value,
+    region: document.getElementById("regionSelect").value,
+    comuna: document.getElementById("comunaSelect").value,
+    direccion: document.getElementById("directionInput").value,
+  };
 
-//     console.log("Datos guardados:", datosActualizados);
-
-//     // Aquí puedes:
-//     // - Enviar datos a tu API con fetch()
-//     // - Guardar en localStorage
-//     // - Redirigir de vuelta a la lista de usuarios
-//     alert("Cambios guardados con éxito ✅");
-// });
+  console.log("Datos actualizados:", datosActualizados);
+  alert("Cambios guardados con éxito ✅");
+});

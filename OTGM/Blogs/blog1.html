@@ -1,89 +1,116 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="es">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-sRIl4kxILFvY47J16cr9ZwB07vP4J8+LH7qKQnuqkuIAvNWLzeN8tE5YBujZqJLB" crossorigin="anonymous">
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="/OTGM/main-styles.css">
-    <title>On The Go Music</title>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>On The Go Music - Nuevo Producto</title>
+
+  <!-- Bootstrap -->
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css" rel="stylesheet" 
+        integrity="sha384-sRIl4kxILFvY47J16cr9ZwB07vP4J8+LH7qKQnuqkuIAvNWLzeN8tE5YBujZqJLB" crossorigin="anonymous">
+
+  <!-- Google Fonts -->
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap" rel="stylesheet">
+
+  <!-- Estilos -->
+  <link rel="stylesheet" href="/OTGM/main-styles.css">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons/font/bootstrap-icons.css">
+
+  <!-- Script del carrito -->
+  <script src="/OTGM/carrito.js" defer></script>
 </head>
 <body>
-    <!-- Encabezado -->
-<header id="header">
-    <nav class="navbar navbar-expand-lg navbar-dark bg-blue">
 
-        <div class="container-fluid">
+  <!-- HEADER -->
+  <header id="header">
+    <nav class="navbar navbar-expand-lg navbar-dark bg-blue">
+      <div class="container-fluid">
         <!-- Logo -->
         <a class="navbar-brand" href="#">On The Go Music</a>
         
-        <!-- Botón -->
+        <!-- Botón responsive -->
         <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
-            <span class="navbar-toggler-icon"></span>
+          <span class="navbar-toggler-icon"></span>
         </button>
 
         <!-- Links -->
         <div class="collapse navbar-collapse" id="navbarNav">
-            <ul class="navbar-nav me-auto">
-            <li class="nav-item"><a class="nav-link" href="#" onclick="window.location.href='/OTGM/main-page.html'">Inicio</a></li>
-            <li class="nav-item"><a class="nav-link" href="#" onclick="window.location.href='/OTGM/Productos/productos.html'">Productos</a></li>
-            <li class="nav-item"><a class="nav-link" href="#" onclick="window.location.href='/OTGM/Nosotros/nosotros.html'">Nosotros</a></li>
-            <li class="nav-item"><a class="nav-link" href="#" onclick="window.location.href='/OTGM/Blogs/Blogs.html'">Blogs</a></li>
-            <li class="nav-item"><a class="nav-link" href="#" onclick="window.location.href='/OTGM/Contacto/contacto.html'">Contacto</a></li>
-            </ul>
-            
-            <!-- Acciones a la derecha -->
-            <ul class="navbar-nav">
+        <ul class="navbar-nav me-auto">
+        <li class="nav-item"><a class="nav-link" href="/OTGM/main-page.html">Inicio</a></li>
+        <li class="nav-item"><a class="nav-link" href="/OTGM/Productos/productos.html">Productos</a></li>
+        <li class="nav-item"><a class="nav-link" href="/OTGM/Nosotros/nosotros.html">Nosotros</a></li>
+        <li class="nav-item"><a class="nav-link" href="/OTGM/Blogs/blogs.html">Blogs</a></li>
+        <li class="nav-item"><a class="nav-link" href="/OTGM/Contacto/contacto.html">Contacto</a></li>
+        </ul>
+
+
+          <!-- Carrito -->
+          <ul class="navbar-nav">
             <li class="nav-item">
-                <a class="nav-link" href="#">
+              <a id="cart-link" class="nav-link" href="/OTGM/Carrito/carrito.html">
                 <i class="bi bi-cart"></i> Carrito (0)
-                </a>
+              </a>
             </li>
-            </ul>
+          </ul>
         </div>
-        </div>
+      </div>
     </nav>
-    </header>
+  </header>
 
-    <main>
-        <section class="card-title text-center p-5">
-            <h1>¡Nuevo Producto en On The Go Music!</h1>
-        </section>
+  <!-- MAIN -->
+  <main>
+    <!-- Hero -->
+    <section class="text-center p-5 bg-light">
+      <h1 class="fw-bold">¡Nuevo Producto en On The Go Music!</h1>
+    </section>
 
-        <section>
-            <div class="container">
-                <div class="row justify-content-center">
-                    <div class="col-lg-12">
-                        <div class="card p-4 shadow-sm">
-                            <div class="text-center mb-4">
-                                <img src="https://images.gibson.com/Lifestyle/Spanish/ES75VSNH1-Finish-Shot.jpg" alt="Imagen guitarra" class="img-fluid rounded border">
-                            </div>
-                            <div class="card-body">
-                                <h3 class="mb-3 text-primary">Gibson Archtop: Tradición y Sonido Excepcional</h3>
-                                <p class="fs-5 mb-4">
-                                    Nos complace anunciar la incorporación de un instrumento muy esperado en nuestra tienda: la guitarra <strong>Archtop de Gibson</strong>. Este modelo, reconocido mundialmente por su diseño elegante y su sonido excepcional, representa lo mejor de la tradición y la innovación de Gibson.
-                                </p>
-                                <p class="fs-5 mb-4">
-                                    La Archtop se ha consolidado como una de las favoritas entre guitarristas de jazz, blues y rock, gracias a su cálida resonancia y a su versatilidad en distintos estilos musicales. Su construcción artesanal y sus detalles de alta calidad hacen de este instrumento una verdadera joya para músicos exigentes y coleccionistas.
-                                </p>
-                                <p class="fs-5 mb-4">
-                                    Invitamos a todos nuestros clientes y amigos a visitar <strong>On The Go Music</strong> para conocer de cerca esta nueva llegada. La Gibson Archtop ya está disponible para prueba y compra en nuestra tienda.
-                                </p>
-                                <p class="fs-5 mb-0">
-                                    No dejes pasar la oportunidad de experimentar un sonido único que solo Gibson puede ofrecer. Ven y descubre por qué la guitarra Archtop es una elección insuperable para cualquier músico apasionado.
-                                </p>
-                            </div>
-                        </div>
-                    </div>
-                </div>
+    <!-- Producto -->
+    <section>
+      <div class="container my-5">
+        <div class="row justify-content-center">
+          <div class="col-lg-12">
+            <div class="card p-4 shadow-sm">
+              <!-- Imagen -->
+              <div class="text-center mb-4">
+                <img src="https://images.gibson.com/Lifestyle/Spanish/ES75VSNH1-Finish-Shot.jpg" 
+                     alt="Imagen guitarra Gibson Archtop" 
+                     class="img-fluid rounded border">
+              </div>
+              <!-- Texto -->
+              <div class="card-body">
+                <h3 class="mb-3 text-primary">Gibson Archtop: Tradición y Sonido Excepcional</h3>
+                <p class="fs-5 mb-4">
+                  Nos complace anunciar la incorporación de un instrumento muy esperado en nuestra tienda: la guitarra 
+                  <strong>Archtop de Gibson</strong>. Este modelo, reconocido mundialmente por su diseño elegante y su sonido excepcional, 
+                  representa lo mejor de la tradición y la innovación de Gibson.
+                </p>
+                <p class="fs-5 mb-4">
+                  La Archtop se ha consolidado como una de las favoritas entre guitarristas de jazz, blues y rock, gracias a su cálida resonancia 
+                  y a su versatilidad en distintos estilos musicales. Su construcción artesanal y sus detalles de alta calidad hacen de este 
+                  instrumento una verdadera joya para músicos exigentes y coleccionistas.
+                </p>
+                <p class="fs-5 mb-4">
+                  Invitamos a todos nuestros clientes y amigos a visitar <strong>On The Go Music</strong> para conocer de cerca esta nueva llegada. 
+                  La Gibson Archtop ya está disponible para prueba y compra en nuestra tienda.
+                </p>
+                <p class="fs-5 mb-0">
+                  No dejes pasar la oportunidad de experimentar un sonido único que solo Gibson puede ofrecer. Ven y descubre por qué 
+                  la guitarra Archtop es una elección insuperable para cualquier músico apasionado.
+                </p>
+              </div>
             </div>
-        </section>
-    </main>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
 
+  <!-- FOOTER -->
+  <footer class="text-center p-3 bg-dark text-white mt-5">
+    <p class="mb-0">&copy; 2024 On The Go Music. Todos los derechos reservados.</p>
+  </footer>
 
+  <!-- Bootstrap JS -->
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js" crossorigin="anonymous"></script>
 </body>
-<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons/font/bootstrap-icons.css">
-<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js" integrity="sha384-FKyoEForCGlyvwx9Hj09JcYn3nv7wiPVlz7YYwJrWVcXK/BmnVDxM+D2scQbITxI" crossorigin="anonymous"></script>
 </html>

@@ -114,22 +114,22 @@
         </header>
 
     <!--TODO: Formulario de registro (extraido de otro archivo, tarea de formulario) -->
-    <section class="form-section container my-3">
+    <section class="form-section container my-3 p-4 border rounded-3 bg-white">
       <h1>Nuevo Producto</h1>
 
       <form id="registrationForm" onsubmit="validarFormulario(event)">
         <!-- Código Producto -->
         <div class="Codigo-Producto">
-          <label for="nameInput">Código Producto:</label>
+          <label for="codIntput">Código Producto *</label>
           <input
             type="text"
-            id="nameInput"
+            id="codIntput"
             oninput="validarCodigoProducto()"
             required
             class="form-control"
           />
           <span
-            id="nameFeedback"
+            id="codIntputFeedback"
             class="invalid-feedback"
             style="color: red"
           ></span>
@@ -137,7 +137,7 @@
 
         <!-- Nombre Producto -->
         <div class="Nombre-producto">
-          <label for="nombreProductoInput">Nombre Producto:</label>
+          <label for="nombreProductoInput">Nombre Producto *</label>
           <input
             type="text"
             id="nombreProductoInput"
@@ -154,11 +154,11 @@
 
         <!-- Descripción -->
         <div class="descripcion">
-          <label for="descripcionInput">Descripción:</label>
+          <label for="descripcionInput">Descripción</label>
           <input
             type="text"
             id="descripcionInput"
-            oninput="validarDescripcion()"
+            oninput="validarDescripcionProducto()"
             required
             class="form-control"
           />
@@ -171,11 +171,11 @@
 
         <!-- Precio -->
         <div class="precio">
-          <label for="precioInput">Precio:</label>
+          <label for="precioInput">Precio *</label>
           <input
             type="text"
             id="precioInput"
-            oninput="validarPrecio()"
+            oninput="validarPrecioProducto()"
             required
             class="form-control"
           />
@@ -188,11 +188,11 @@
 
         <!-- Stock -->
         <div>
-            <label for="stockInput">Stock:</label>
+            <label for="stockInput">Stock *</label>
             <input
               type="number"
               id="stockInput"
-              oninput="validarStock()"
+              oninput="validarStockProducto()"
               required
               class="form-control"
             />
@@ -205,12 +205,11 @@
 
         <!-- Stock Crítico -->
         <div>
-            <label for="stockCriticoInput">Stock Crítico:</label>
+            <label for="stockCriticoInput">Stock Crítico</label>
             <input
               type="number"
               id="stockCriticoInput"
-              oninput="validarStockCritico()"
-              required
+              oninput="validarStockCriticoProducto()"
               class="form-control"
             />
             <span
@@ -219,11 +218,12 @@
               style="color: red"
             ></span>
         </div>
+
         <!-- Categoria (lado a lado) -->
         <div class="row g-3 my-3">
             <div class="col-md-6">
-                <label for="regionSelect" class="form-label">Categoría</label>
-                <select id="regionSelect" class="form-select" required onchange="cargarCategorias()">
+                <label for="regionSelect" class="form-label">Categoría *</label>
+                <select id="regionSelect" class="form-select" required onchange="validarCategoriaProducto()">
                     <option value="" disabled selected>Seleccione categoría</option>
                     <option value="cuerda">Cuerda</option>
                     <option value="percusion">Percusión</option>
@@ -235,14 +235,14 @@
 
             <div class="col-md-6">
                 <label for="imagenInput" class="form-label">Imagen</label>
-                <input type="file" id="imagenInput" class="form-control" accept="image/*">
+                <input type="file" id="imagenInput" class="form-control" accept="image/*" onchange="validarImagenProducto()">
                 <span id="imagenFeedback" class="invalid-feedback" style="color: red"></span>
             </div>
         </div>
 
         <!-- Botón -->
         <div>
-          <button type="submit" id="submitBtn" class="btn btn-primary mt-3">
+          <button type="submit" id="submitBtn" class="btn btn-primary mt-3" onclick="validarFormulario(event)">
             Agregar Producto
           </button>
         </div>
@@ -251,4 +251,5 @@
     </main>
 </body>
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js" integrity="sha384-FKyoEForCGlyvwx9Hj09JcYn3nv7wiPVlz7YYwJrWVcXK/BmnVDxM+D2scQbITxI" crossorigin="anonymous"></script>
+<script src="/OTGM/Admin/Productos-Admin/productos.js"></script>
 </html>

@@ -3,7 +3,14 @@ function obtenerUsuarios() {
 return [
   { id: 1, rut: "12312312-3", nombre: "Juan", apellidos: "Pérez", correo: "juan.perez@example.com", contraseña: "******", fechaNacimiento: "1990-01-01", rol: "admin", region: "Metropolitana", comuna: "Santiago", direccion: "Calle Falsa 123"},
   { id: 2, rut: "45645645-6", nombre: "María", apellidos: "González", correo: "maria.gonzalez@example.com", contraseña: "******", fechaNacimiento: "1992-02-02", rol: "user", region: "Valparaíso", comuna: "Viña del Mar", direccion: "Avenida Libertad 456"},
-  { id: 3, rut: "78978978-9", nombre: "Pedro", apellidos: "López", correo: "pedro.lopez@example.com", contraseña: "******", fechaNacimiento: "1988-03-03", rol: "user", region: "Biobío", comuna: "Concepción", direccion: "Calle Real 789"}
+  { id: 3, rut: "78978978-9", nombre: "Pedro", apellidos: "López", correo: "pedro.lopez@example.com", contraseña: "******", fechaNacimiento: "1988-03-03", rol: "user", region: "Biobío", comuna: "Concepción", direccion: "Calle Real 789"},
+  { id: 4, rut: "11122233-4", nombre: "Ana", apellidos: "Martínez", correo: "ana.martinez@example.com", contraseña: "******", fechaNacimiento: "1995-04-04", rol: "user", region: "Metropolitana", comuna: "Santiago", direccion: "Calle Verdadera 123"},
+  { id: 5, rut: "55566677-8", nombre: "Luis", apellidos: "Rodríguez", correo: "luis.rodriguez@example.com", contraseña: "******", fechaNacimiento: "1990-05-05", rol: "user", region: "Metropolitana", comuna: "Santiago", direccion: "Calle Falsa 456"},
+  { id: 6, rut: "99988877-6", nombre: "Carmen", apellidos: "Fernández", correo: "carmen.fernandez@example.com", contraseña: "******", fechaNacimiento: "1985-06-06", rol: "user", region: "Metropolitana", comuna: "Santiago", direccion: "Calle Imaginaria 789"},
+  { id: 7, rut: "22233344-5", nombre: "Jorge", apellidos: "Sánchez", correo: "jorge.sanchez@example.com", contraseña: "******", fechaNacimiento: "1993-07-07", rol: "user", region: "Metropolitana", comuna: "Santiago", direccion: "Calle Falsa 789"},
+  { id: 8, rut: "33344455-6", nombre: "Lucía", apellidos: "Ramírez", correo: "lucia.ramirez@example.com", contraseña: "******", fechaNacimiento: "1998-08-08", rol: "user", region: "Metropolitana", comuna: "Santiago", direccion: "Calle Verdadera 456"},
+  { id: 9, rut: "44455566-7", nombre: "Diego", apellidos: "Torres", correo: "diego.torres@example.com", contraseña: "******", fechaNacimiento: "1990-09-09", rol: "user", region: "Metropolitana", comuna: "Santiago", direccion: "Calle Imaginaria 123"},
+  { id: 10, rut: "55566677-8", nombre: "Sofía", apellidos: "Vargas", correo: "sofia.vargas@example.com", contraseña: "******", fechaNacimiento: "1995-10-10", rol: "user", region: "Metropolitana", comuna: "Santiago", direccion: "Calle Falsa 789"}
 ];
 }
 

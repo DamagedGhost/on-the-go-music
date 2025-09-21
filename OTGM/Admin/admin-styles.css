@@ -1,7 +1,12 @@
 /* Usando la fuente Montserrat desde Google Fonts, importada en <head>*/
 
 body {
-    background-color: #ecf0f1;
+  background: #ffc9c9;
+  background: linear-gradient(90deg,
+   rgba(255, 201, 201, 1) 0%,
+   rgba(255, 217, 251, 1) 28%,
+    rgba(237, 204, 255, 1) 62%,
+     rgba(210, 250, 245, 1) 92%);
 }
 
 /* Estilos para los encabezados*/
@@ -104,4 +109,14 @@ option:checked {
     border-radius: 8px;
     overflow: hidden;
     box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+}
+
+#diseño-grafico {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 20px;
+    background-color: rgba(255, 255, 255, 0.8);
+    border-radius: 12px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
 }

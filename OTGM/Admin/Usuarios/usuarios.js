@@ -1,18 +1,55 @@
-// Simulación de un "dataframe" (array de objetos)
+// usuarios.js
 function obtenerUsuarios() {
-return [
-  { id: 1, rut: "12312312-3", nombre: "Juan", apellidos: "Pérez", correo: "juan.perez@example.com", contraseña: "******", fechaNacimiento: "1990-01-01", rol: "admin", region: "Metropolitana", comuna: "Santiago", direccion: "Calle Falsa 123"},
-  { id: 2, rut: "45645645-6", nombre: "María", apellidos: "González", correo: "maria.gonzalez@example.com", contraseña: "******", fechaNacimiento: "1992-02-02", rol: "user", region: "Valparaíso", comuna: "Viña del Mar", direccion: "Avenida Libertad 456"},
-  { id: 3, rut: "78978978-9", nombre: "Pedro", apellidos: "López", correo: "pedro.lopez@example.com", contraseña: "******", fechaNacimiento: "1988-03-03", rol: "user", region: "Biobío", comuna: "Concepción", direccion: "Calle Real 789"},
-  { id: 4, rut: "11122233-4", nombre: "Ana", apellidos: "Martínez", correo: "ana.martinez@example.com", contraseña: "******", fechaNacimiento: "1995-04-04", rol: "user", region: "Metropolitana", comuna: "Santiago", direccion: "Calle Verdadera 123"},
-  { id: 5, rut: "55566677-8", nombre: "Luis", apellidos: "Rodríguez", correo: "luis.rodriguez@example.com", contraseña: "******", fechaNacimiento: "1990-05-05", rol: "user", region: "Metropolitana", comuna: "Santiago", direccion: "Calle Falsa 456"},
-  { id: 6, rut: "99988877-6", nombre: "Carmen", apellidos: "Fernández", correo: "carmen.fernandez@example.com", contraseña: "******", fechaNacimiento: "1985-06-06", rol: "user", region: "Metropolitana", comuna: "Santiago", direccion: "Calle Imaginaria 789"},
-  { id: 7, rut: "22233344-5", nombre: "Jorge", apellidos: "Sánchez", correo: "jorge.sanchez@example.com", contraseña: "******", fechaNacimiento: "1993-07-07", rol: "user", region: "Metropolitana", comuna: "Santiago", direccion: "Calle Falsa 789"},
-  { id: 8, rut: "33344455-6", nombre: "Lucía", apellidos: "Ramírez", correo: "lucia.ramirez@example.com", contraseña: "******", fechaNacimiento: "1998-08-08", rol: "user", region: "Metropolitana", comuna: "Santiago", direccion: "Calle Verdadera 456"},
-  { id: 9, rut: "44455566-7", nombre: "Diego", apellidos: "Torres", correo: "diego.torres@example.com", contraseña: "******", fechaNacimiento: "1990-09-09", rol: "user", region: "Metropolitana", comuna: "Santiago", direccion: "Calle Imaginaria 123"},
-  { id: 10, rut: "55566677-8", nombre: "Sofía", apellidos: "Vargas", correo: "sofia.vargas@example.com", contraseña: "******", fechaNacimiento: "1995-10-10", rol: "user", region: "Metropolitana", comuna: "Santiago", direccion: "Calle Falsa 789"}
-];
+  const usuarios = localStorage.getItem('usuarios');
+  return usuarios ? JSON.parse(usuarios) : [];
 }
+
+function guardarUsuarios(usuarios) {
+  localStorage.setItem('usuarios', JSON.stringify(usuarios));
+}
+
+function modificarUsuario(id, nuevosDatos) {
+  const usuarios = obtenerUsuarios();
+  const indice = usuarios.findIndex(u => u.id === id);
+  if (indice !== -1) {
+    usuarios[indice] = { ...usuarios[indice], ...nuevosDatos };
+    guardarUsuarios(usuarios);
+  }
+}
+
+function eliminarUsuario(id) {
+  const usuarios = obtenerUsuarios();
+  const indice = usuarios.findIndex(u => u.id === id);
+  if (indice !== -1) {
+    if (confirm("¿Estás seguro de que deseas eliminar este usuario?")) {
+      usuarios.splice(indice, 1);
+      guardarUsuarios(usuarios);
+      alert("Usuario eliminado con éxito ✅");
+      location.reload(); // Recargar la página para reflejar los cambios
+    }
+  } else {
+    alert("Usuario no encontrado.");
+  }
+}
+
+// Inicializa un admin demo si no existe (solo para DEMO)
+(function inicializarAdminDemo() {
+  const usuarios = obtenerUsuarios();
+  const existeAdmin = usuarios.some(u => u.correo && u.correo.toLowerCase() === 'admin@admin.com');
+  if (!existeAdmin) {
+    usuarios.push({
+      id: Date.now(),
+      nombre: 'Admin Demo',
+      correo: 'admin@admin.com',
+      password: 'admin',   // contraseña por defecto: "admin"
+      rol: 'admin'
+    });
+    guardarUsuarios(usuarios);
+  }
+})();
+
+inicializarAdminDemo();
+
 
 // Función genérica para cargar datos en una tabla HTML
 function cargarTabla(tablaId, data) {
@@ -28,6 +65,7 @@ function cargarTabla(tablaId, data) {
       <td>${item.nombre}</td>
       <td>${item.apellidos}</td>
       <td>${item.correo}</td>
+      <td>${item.password}</td>
       <td>${item.rol}</td>
       <td>${item.region}</td>
       <td>${item.comuna}</td>
@@ -36,6 +74,9 @@ function cargarTabla(tablaId, data) {
       <td>
         <button class="btn btn-sm btn-primary" onclick="editarUsuario(${item.id})">
             Editar
+        </button>
+        <button class="btn btn-sm btn-danger" onclick="eliminarUsuario(${item.id})">
+          Eliminar
         </button>
       </td>
     `;
@@ -361,11 +402,42 @@ function validarFormulario(event) {
     validarComuna() &&
     validarDireccion();
 
-  if (esValido) {
-    alert("Formulario válido ✅");
-  } else {
-    alert("Formulario inválido ❌");
+  if (!esValido) {
+    alert("Por favor corrige los errores en el formulario.");
+    return;
   }
+
+  const datosUsuario = {
+    rut: document.getElementById("rutInput").value,
+    nombre: document.getElementById("nameInput").value,
+    apellido: document.getElementById("surnameInput").value,
+    correo: document.getElementById("emailInput").value,
+    password: document.getElementById("passwordInput").value,
+    fechaNacimiento: document.getElementById("birthdateInput").value,
+    rol: document.getElementById("userTypeSelect").value,
+    region: document.getElementById("regionSelect").value,
+    comuna: document.getElementById("comunaSelect").value,
+    direccion: document.getElementById("directionInput").value,
+  };
+
+  const userId = getUserIdFromUrl(); // ← detecta si hay id en la URL
+
+  if (userId) {
+    // 🔹 EDITAR
+    modificarUsuario(Number(userId), datosUsuario);
+    alert("Usuario actualizado con éxito ✅");
+  } else {
+    // 🔹 CREAR
+    const usuarios = obtenerUsuarios();
+    datosUsuario.id =
+      usuarios.length > 0 ? usuarios[usuarios.length - 1].id + 1 : 1;
+    usuarios.push(datosUsuario);
+    guardarUsuarios(usuarios);
+    alert("Usuario registrado con éxito ✅");
+  }
+
+  // Opcional: redirigir después de guardar
+  // window.location.href = "/OTGM/Admin/Usuarios/listar-usuarios.html";
 }
 
 function scriptFunciona() {
@@ -412,6 +484,10 @@ function cargarDatosUsuario() {
   document.getElementById("regionSelect").value = usuario.region || "";
   document.getElementById("comunaSelect").value = usuario.comuna || "";
   document.getElementById("directionInput").value = usuario.direccion || "";
+
+  cargarComunas(); // Cargar comunas según la región
+  document.getElementById("comunaSelect").value = usuario.comuna || "";
+  
 }
 
 // Ejecutar al cargar
@@ -433,6 +509,7 @@ document.getElementById("registrationForm").addEventListener("submit", function 
     direccion: document.getElementById("directionInput").value,
   };
 
-  console.log("Datos actualizados:", datosActualizados);
-  alert("Cambios guardados con éxito ✅");
+  const userId = getUserIdFromUrl();
+  modificarUsuario(Number(userId), datosActualizados);
+  alert("Usuario actualizado con éxito ✅");
 });

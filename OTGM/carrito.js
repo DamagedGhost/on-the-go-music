@@ -108,3 +108,5 @@ document.addEventListener("DOMContentLoaded", () => {
 });
 
 window.clearCart = clearCart;
+
+// -------------------------- script usuario -------------------------

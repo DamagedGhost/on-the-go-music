@@ -18,7 +18,7 @@ document.addEventListener("DOMContentLoaded", () => {
     const correo2 = document.getElementById("correo2");
 
     if (!regexCorreo.test(correo.value)) {
-      alert("Ingrese un correo electrónico válido.");
+      alert("Ingrese un correo electrónico valido.");
       correo.focus();
       return;
     }
@@ -46,15 +46,15 @@ document.addEventListener("DOMContentLoaded", () => {
     const telefono = document.getElementById("telefono");
     const regexTel = /^[0-9]{9}$/; // Chile, 9 dígitos
     if (telefono.value.trim() !== "" && !regexTel.test(telefono.value)) {
-      alert("Ingrese un teléfono válido de 9 dígitos.");
+      alert("Ingrese un telefono valido de 9 digitos.");
       telefono.focus();
       return;
     }
 
     // Región
     const region = document.getElementById("region");
-    if (region.value === "-- Seleccione la región --" || region.value === "") {
-      alert("Seleccione una región.");
+    if (region.value === "-- Seleccione la region --" || region.value === "") {
+      alert("Seleccione una region.");
       region.focus();
       return;
     }
@@ -67,8 +67,7 @@ document.addEventListener("DOMContentLoaded", () => {
       return;
     }
 
-    // Todo ok
-    alert("¡Registro exitoso!");
+    alert("Registro exitoso!");
     form.submit();
   });
 });

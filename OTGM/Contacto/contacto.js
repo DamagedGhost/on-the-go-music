@@ -1,6 +1,4 @@
-// Validación del formulario de contacto
-
-//Validación del nombre
+//Validacion del nombre
 function validarNombre() {
     let nombre = document.getElementById("nombre").value.trim();
     let error = document.getElementById("errorNombre");
@@ -18,7 +16,7 @@ function validarNombre() {
     return true;
 }
 
-//Validación del correo
+//Validacion del correo
 function validarCorreo() {
     let correo = document.getElementById("correo").value.trim();
     let error = document.getElementById("errorCorreo");
@@ -35,7 +33,7 @@ function validarCorreo() {
     error.textContent = "";
     return true;
 }
-//Validación de comentario
+//Validacion de comentario
 function validarComentario() {
     let comentario = document.getElementById("comentario").value.trim();
     let error = document.getElementById("errorComentario");
@@ -51,7 +49,7 @@ function validarComentario() {
     error.textContent = "";
     return true;
 }
-//Validación completa del formulario
+//Validacion completa del formulario
 function validarFormulario() {
     let valido = true;
 

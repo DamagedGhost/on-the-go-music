@@ -24,7 +24,7 @@ function verificarYRedirigir(event) {
   );
 
   if (usuario) {
-    // Guardar sesión
+    // Guardar sesion
     localStorage.setItem("usuarioActivo", JSON.stringify(usuario));
 
     if (usuario.rol === "admin") {

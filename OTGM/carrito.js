@@ -1,112 +1,198 @@
-// /OTGM/carrito.js
-const CART_KEY = "otgm_cart";
+// -------------------------- CARRITO DE COMPRA -------------------------
 
-const fmtCLP = n =>
+const CLAVE_CARRITO = "otgm_cart";
+
+// Formatear precios como CLP
+const formatoCLP = n =>
   new Intl.NumberFormat("es-CL", { style: "currency", currency: "CLP" }).format(n);
 
-const getCart = () => JSON.parse(localStorage.getItem(CART_KEY) || "[]");
-const saveCart = cart => localStorage.setItem(CART_KEY, JSON.stringify(cart));
+// Leer carrito desde localStorage
+const obtenerCarrito = () => JSON.parse(localStorage.getItem(CLAVE_CARRITO) || "[]");
 
-function updateNavCount() {
+// Guardar carrito en localStorage
+const guardarCarrito = carrito => localStorage.setItem(CLAVE_CARRITO, JSON.stringify(carrito));
+
+
+//  Actuzaliza el contador en el nav
+function actualizarContadorNav() {
   const link = document.getElementById("cart-link");
   if (!link) return;
-  const totalItems = getCart().reduce((acc, p) => acc + p.quantity, 0);
-  link.innerHTML = `<i class="bi bi-cart"></i> Carrito (${totalItems})`;
+
+  const totalProductos = obtenerCarrito().reduce((acc, p) => acc + p.cantidad, 0);
+  link.innerHTML = `<i class="bi bi-cart"></i> Carrito (${totalProductos})`;
 }
 
-function addToCart({ name, price, image, qty = 1 }) {
-  let cart = getCart();
-  const i = cart.findIndex(p => p.name === name);
-  if (i >= 0) cart[i].quantity += qty;
-  else cart.push({ name, price: Number(price), image, quantity: qty });
-  saveCart(cart);
-  updateNavCount();
+
+// Agrega producto
+function agregarAlCarrito({ nombre, precio, imagen, cantidad = 1 }) {
+  let carrito = obtenerCarrito();
+  const i = carrito.findIndex(p => p.nombre === nombre);
+
+  if (i >= 0) {
+    carrito[i].cantidad += cantidad;
+  } else {
+    carrito.push({ nombre, precio: Number(precio), imagen, cantidad });
+  }
+
+  guardarCarrito(carrito);
+  actualizarContadorNav();
 }
 
-function changeQty(index, delta) {
-  let cart = getCart();
-  if (!cart[index]) return;
-  cart[index].quantity += delta;
-  if (cart[index].quantity <= 0) cart.splice(index, 1);
-  saveCart(cart);
-  renderCart();
-  updateNavCount();
+
+// cambiar camtidad
+function cambiarCantidad(indice, cambio) {
+  let carrito = obtenerCarrito();
+  if (!carrito[indice]) return;
+
+  carrito[indice].cantidad += cambio;
+  if (carrito[indice].cantidad <= 0) carrito.splice(indice, 1);
+
+  guardarCarrito(carrito);
+  mostrarCarrito();
+  actualizarContadorNav();
 }
 
-function removeAt(index) {
-  let cart = getCart();
-  cart.splice(index, 1);
-  saveCart(cart);
-  renderCart();
-  updateNavCount();
+
+// Elimina producto
+function eliminarProducto(indice) {
+  let carrito = obtenerCarrito();
+  carrito.splice(indice, 1);
+  guardarCarrito(carrito);
+  mostrarCarrito();
+  actualizarContadorNav();
 }
 
-function clearCart() {
-  saveCart([]);
-  renderCart();
-  updateNavCount();
+
+// Vaciar carrito
+function vaciarCarrito() {
+  guardarCarrito([]);
+  mostrarCarrito();
+  actualizarContadorNav();
 }
 
-function renderCart() {
-  const list = document.getElementById("cart-items-list");
+
+// Mostrar carrito
+function mostrarCarrito() {
+  const lista = document.getElementById("cart-items-list");
   const totalEl = document.getElementById("cart-total");
-  if (!list || !totalEl) return;
 
-  const cart = getCart();
+  if (!lista || !totalEl) return;
+
+  const carrito = obtenerCarrito();
   let total = 0;
-  list.innerHTML = cart.map((item, i) => {
-    total += item.price * item.quantity;
-    return `
-      <div class="d-flex align-items-center justify-content-between border rounded p-2 mb-2">
-        <div class="d-flex align-items-center">
-          <img src="${item.image}" alt="${item.name}" width="70" height="70" class="object-fit-cover me-3">
-          <div>
-            <div class="fw-semibold">${item.name}</div>
-            <div class="text-muted small">${fmtCLP(item.price)} c/u</div>
-          </div>
-        </div>
-        <div class="d-flex align-items-center gap-2">
-          <button class="btn btn-sm btn-outline-secondary qty-minus" data-index="${i}">-</button>
-          <span class="px-2">${item.quantity}</span>
-          <button class="btn btn-sm btn-outline-secondary qty-plus" data-index="${i}">+</button>
-          <span class="ms-3 fw-semibold">${fmtCLP(item.price * item.quantity)}</span>
-          <button class="btn btn-sm btn-outline-danger ms-2 remove-item" data-index="${i}">X</button>
-        </div>
-      </div>`;
-  }).join("");
 
-  totalEl.textContent = fmtCLP(total);
+  lista.innerHTML = "";
+
+  carrito.forEach((item, i) => {
+    const subtotal = item.precio * item.cantidad;
+    total += subtotal;
+
+    // contenedor del producto
+    const itemDiv = document.createElement("div");
+    itemDiv.className = "d-flex align-items-center justify-content-between border rounded p-2 mb-2";
+
+    // columna izquierda
+    const izquierdaDiv = document.createElement("div");
+    izquierdaDiv.className = "d-flex align-items-center";
+
+    const img = document.createElement("img");
+    img.src = item.imagen;
+    img.alt = item.nombre;
+    img.width = 70;
+    img.height = 70;
+    img.className = "object-fit-cover me-3";
+
+    const infoDiv = document.createElement("div");
+    const nombreDiv = document.createElement("div");
+    nombreDiv.className = "fw-semibold";
+    nombreDiv.textContent = item.nombre;
+
+    const precioDiv = document.createElement("div");
+    precioDiv.className = "text-muted small";
+    precioDiv.textContent = `${formatoCLP(item.precio)} c/u`;
+
+    infoDiv.appendChild(nombreDiv);
+    infoDiv.appendChild(precioDiv);
+
+    izquierdaDiv.appendChild(img);
+    izquierdaDiv.appendChild(infoDiv);
+
+    // columna derecha
+    const derechaDiv = document.createElement("div");
+    derechaDiv.className = "d-flex align-items-center gap-2";
+
+    const btnMenos = document.createElement("button");
+    btnMenos.className = "btn btn-sm btn-outline-secondary qty-minus";
+    btnMenos.dataset.index = i;
+    btnMenos.textContent = "-";
+
+    const cantidadSpan = document.createElement("span");
+    cantidadSpan.className = "px-2";
+    cantidadSpan.textContent = item.cantidad;
+
+    const btnMas = document.createElement("button");
+    btnMas.className = "btn btn-sm btn-outline-secondary qty-plus";
+    btnMas.dataset.index = i;
+    btnMas.textContent = "+";
+
+    const subtotalSpan = document.createElement("span");
+    subtotalSpan.className = "ms-3 fw-semibold";
+    subtotalSpan.textContent = formatoCLP(subtotal);
+
+    const btnEliminar = document.createElement("button");
+    btnEliminar.className = "btn btn-sm btn-outline-danger ms-2 remove-item";
+    btnEliminar.dataset.index = i;
+    btnEliminar.textContent = "X";
+
+    derechaDiv.appendChild(btnMenos);
+    derechaDiv.appendChild(cantidadSpan);
+    derechaDiv.appendChild(btnMas);
+    derechaDiv.appendChild(subtotalSpan);
+    derechaDiv.appendChild(btnEliminar);
+
+    itemDiv.appendChild(izquierdaDiv);
+    itemDiv.appendChild(derechaDiv);
+
+    lista.appendChild(itemDiv);
+  });
+
+  totalEl.textContent = formatoCLP(total);
 }
 
+
+// Eventos
 document.addEventListener("DOMContentLoaded", () => {
-  updateNavCount();
+  actualizarContadorNav();
 
   document.addEventListener("click", (e) => {
     const btn = e.target.closest(".add-to-cart");
     if (btn) {
-      const { name, price, image, quantityId } = btn.dataset;
-
-      // Leer cantidad si el botón tiene data-quantity-id
-      let qty = 1;
-      if (quantityId) {
-        const select = document.getElementById(quantityId);
-        if (select) qty = parseInt(select.value, 10);
-      }
-
-      addToCart({ name, price, image, qty });
+      const { name, price, image } = btn.dataset;
+      agregarAlCarrito({ nombre: name, precio: price, imagen: image, cantidad: 1 });
     }
 
-    const plus = e.target.closest(".qty-plus");
-    const minus = e.target.closest(".qty-minus");
-    const remove = e.target.closest(".remove-item");
-    if (plus) changeQty(Number(plus.dataset.index), +1);
-    if (minus) changeQty(Number(minus.dataset.index), -1);
-    if (remove) removeAt(Number(remove.dataset.index));
+    const mas = e.target.closest(".qty-plus");
+    const menos = e.target.closest(".qty-minus");
+    const eliminar = e.target.closest(".remove-item");
+    const pagar = e.target.closest("#btn-pagar");
+
+    if (mas) cambiarCantidad(Number(mas.dataset.index), +1);
+    if (menos) cambiarCantidad(Number(menos.dataset.index), -1);
+    if (eliminar) eliminarProducto(Number(eliminar.dataset.index));
+
+    // Mensaje de pago
+    if (pagar) {
+      const carrito = obtenerCarrito();
+      if (carrito.length === 0) {
+        alert("Tu carrito está vacío. Agrega productos antes de pagar.");
+      } else {
+        alert("Gracias por tu compra en On The Go Music.");
+        vaciarCarrito();
+      }
+    }
   });
 
-  renderCart();
+  mostrarCarrito();
 });
 
-window.clearCart = clearCart;
-
-// -------------------------- script usuario -------------------------
+window.vaciarCarrito = vaciarCarrito;
